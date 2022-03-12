@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TLDR</title>
+    <link rel="stylesheet", type="text/css", href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+</head>
+<body>
+    <div>
+        <h1 align="center">Welcome to TDLR</h1><br>
+        <p align="center">We hope you bought pizza!</p>
+    </div>
+
+    <div>
+        <script>
+        function CopyToClipboard(containerid) {
+          if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select().createTextRange();
+            document.execCommand("copy");
+          } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+          }
+        }
+        </script>
+    </div>
+
+    <div>
+    <br><br>
+    <form method="post" action="/" class="pure-form">
+        <input class="ih8this"  placeholder="Enter Text Here" name="enter" align="left"/>
+        {%if summarised_text != "":%}
+        <p align="right">Your summarised text<br></p>
+        {{{summarised_text}}}
+        {%endif%}
+        {%if summarised_text == ""%}
+        <br>
+        <button name="enter" type="submit" class="button" value="Submit" id = "encrypt">Submit</button>
+        <div class="textbox" id="text"></div>
+        {%endif%}
+        {%if summarised_text != ""%}
+        <button onclick="CopyToClipboard('text')" class="pure-button pure-button-primary" id="right">
+            Copy text
+        </button>
+        {%endif%}
+    </form>
+    </div>
+</body>
