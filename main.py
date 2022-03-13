@@ -7,6 +7,7 @@ from string import punctuation
 from heapq import nlargest
 
 
+
 def summarise(text, per):
     try:
         nlp = spacy.load('en_core_web_sm')
@@ -40,6 +41,7 @@ def summarise(text, per):
     except:
         print("Unexcpected error")
 
+
 @app.route('/', methods=['GET', 'POST'])
 def main():
 
@@ -47,6 +49,7 @@ def main():
     if request.method == 'POST' and 'enter' in request.form:
         summarised_text = summarise(request.form.get('enter'),0.5)
     return render_template("index.html", summarised_text=summarised_text)
+
 
 
 if __name__ == '__main__':

@@ -18,6 +18,7 @@
      align-content: center;
      button-group: center;
      margin-left: 15px;
+
 }
  .button-enable {
     /*green */
@@ -38,7 +39,6 @@
      button-group: center;
 }
  body {
-     background: #1a75ff;
      background-size: 400% 400%;
      height: 100vh;
 }
@@ -53,17 +53,7 @@
  form {
      margin: 1px;
 }
- @keyframes gradient {
-     0% {
-         background-position: 0% 50%;
-    }
-     50% {
-         background-position: 100% 50%;
-    }
-     100% {
-         background-position: 0% 50%;
-    }
-}
+
  .ih8this {
      display: block;
      width: 600px;
@@ -73,29 +63,19 @@
      font-size: 28px;
 
 }
- .textbox {
+
+.textbox {
      border-color: #000000;
      border-style: solid;
      border-width: 2px;
      background:#fcfcfc;
-     width:50%;
-     margin-left: 48%;
-     margin-top: 15px;
+     margin-left: 13%;
+     margin-bottom: 15px;
      height: fill;
      font-size: 32px;
      text-overflow: ellipsis;
 }
- .textbox {
-     border-color: #000000;
-     border-style: solid;
-     border-width: 2px;
-     background:#fcfcfc;
-     width:50%;
-     margin-left: 48%;
-     margin-top: 15px;
-     height: fill;
-     font-size: 32px;
-}
+
  #welcomeTitle{
      text-align: center;
      font-size: 35px;
@@ -131,14 +111,16 @@
      font-weight: bold;
      letter-spacing: 0.1em;
      font-size: 16px;
+     display: inline;
+     display: block;
+margin: 1vmin auto;
 }
  #sumDiv{
      display: flex;
      float: right;
      padding: 1vmin;
      margin: 2vmin;
-     width: 30%;
-     height: 100%;
+     width: 50%;
      align-items: center;
      align-content: center;
      flex-wrap: wrap;
@@ -146,7 +128,7 @@
  #sumText{
      font-family: "jost", monospace;
      font-weight: bold;
-     font-size: 20px;
+     font-size: 32px;
      margin: 0 auto;
      margin-bottom: 1.5vmin;
      text-align: center;

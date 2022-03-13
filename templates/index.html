@@ -46,28 +46,23 @@ function CopyToClipboard(containerid) {
     <div>
     <br><br>
     <form method="post" action="/" class="pure-form">
-        <input class="ih8this"  placeholder="Enter Text Here" name="enter" align="left"/>
+        <textarea class="ih8this" name="enter" rows="fill" cols="fill" placeholder="Enter Text Here" align="left"></textarea>
         {%if summarised_text != "":%}
         <div id="sumDiv">
         <p id="sumText">Your summarised text<br></p>
         <hr>
-        {{summarised_text}}<br>
+            <div class="textbox" id="text">{{summarised_text}}</div><br>
         {%endif%}<br>
         {%if summarised_text == ""%}
-      </div>
+        </div>
         <br>
-        <button name="enter" type="submit" class="button" value="Submit" id = "encrypt">submit</button>
-        <div class="textbox" id="text"></div>
+        <button name="enter" type="submit" class="button" value="Submit" id = "encrypt">Submit</button>
         {%endif%}
+    </form>
         {%if summarised_text != ""%}
-
-
-
         <button onclick="CopyToClipboard('text')" class="pure-button pure-button-primary" id="right">
             COPY
         </button>
         {%endif%}
-
-    </form>
     </div>
 </body>
