@@ -5,15 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Jost&family=Mansalva&family=Poppins&family=Rammetto+One&display=swap" rel="stylesheet">
+  
     <title>TLDR</title>
-    <link rel="stylesheet", type="text/css", href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet", type="text/css", href="./css/style.css">
+    <link rel="stylesheet", type="text/css", href="./static\css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+<style>
+
+   #welcomeTitle{
+    text-align: center;
+    font-size: 35px;
+    margin: 0 auto;
+    font-family: "alata", sans-serif;
+}
+
+#TLDRtitle{
+    text-align: center;
+    font-size: 65px;
+    margin: 0 auto;
+    font-family: "rammetto one";
+}
+
+#pizza{
+    font-family: "mansalva", monospace;
+    font-size: 22.5px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 0.3;
+    transform: rotate(-5deg);
+    z-index: 2;
+}
+
+html{
+    font-family: "poppins", sans-serif;
+}
+
+body{
+  padding: 2vmin;
+}
+
+#headDiv{
+  margin-bottom: 4vmin;
+}
+
+.pure-button{
+  font-family: "jost", monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+}
+
+#sumDiv{
+  display: flex;
+  float: right;
+  padding: 1vmin;
+  margin: 2vmin;
+  width: 30%;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+#sumText{
+  font-family: "jost", monospace;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-bottom: 1.5vmin;
+  text-align: center;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+hr{
+  transform: rotate(90deg);
+  float: left;
+  height:2px;
+  border-width:0;
+  color: red;
+  background-color:red;
+}
+
+</style>
+
 
 </head>
 <body>
-    <div>
-        <h1 align="center">Welcome to TDLR</h1><br>
-        <p align="center">We hope you bought pizza!</p>
+    <div id="headDiv">
+        <h2 id="welcomeTitle">Welcome to</h2>
+        <h1 id="TLDRtitle"> TLDR </h1>
+        <p id="pizza">🍕 We hope you bought pizza!</p>
     </div>
 
     <div>
@@ -39,17 +125,20 @@
     <form method="post" action="/" class="pure-form">
         <input class="ih8this"  placeholder="Enter Text Here" name="enter" align="left"/>
         {%if summarised_text != "":%}
-        <p align="right">Your summarised text<br></p>
-        {{summarised_text}}
-        {%endif%}
+        <div id="sumDiv">
+        <p id="sumText">Your summarised text<br></p>
+        <hr>
+        {{summarised_text}}<br>
+        {%endif%}<br>
         {%if summarised_text == ""%}
+      </div>
         <br>
-        <button name="enter" type="submit" class="button" value="Submit" id = "encrypt">Submit</button>
+        <button name="enter" type="submit" class="button" value="Submit" id = "encrypt">submit</button>
         <div class="textbox" id="text"></div>
         {%endif%}
         {%if summarised_text != ""%}
         <button onclick="CopyToClipboard('text')" class="pure-button pure-button-primary" id="right">
-            Copy text
+            COPY
         </button>
         {%endif%}
     </form>
