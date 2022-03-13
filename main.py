@@ -10,7 +10,11 @@ from heapq import nlargest
 
 def summarise(text, per):
     try:
-        nlp = spacy.load('en_core_web_sm')
+        try:
+            nlp = spacy.load("en_core_web_md")
+        except: # If not present, we download
+            spacy.cli.download("en_core_web_md")
+            nlp = spacy.load("en_core_web_md")
         doc = nlp(text)
         tokens = [token.text for token in doc]
         word_frequencies = {}
